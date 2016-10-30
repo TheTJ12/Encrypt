@@ -13,26 +13,24 @@ public class Encrypt
     public Encrypt(String Text)
     {
         System.out.println(Text);
-        char [] meinArray = Text.toCharArray();
-        //double Schluessel = Math.random();
-        double Schluessel = 0.771;
-        char [] meinNeuesArray = verschluesseln(Schluessel, meinArray);
-        System.out.println(meinNeuesArray);
-		System.out.println(Schluessel);
+        char [] myArray = Text.toCharArray();
+        //double Key = Math.random();
+        double Key = 0.771;
+        char [] myNewArray = Encrypt(Key, myArray);
+        System.out.println(myNewArray);
+		System.out.println(Key);
     }
     
       
-        public char [] verschluesseln(double offset, char[] charArray) {
+        public char [] encrypt(double offset, char[] charArray) {
  
         char[] cryptArray = new char[charArray.length];
-        // erstmal ein leeres Char Array erstellen
+             for (int i = 0; i < charArray.length; i++) {
  
-        for (int i = 0; i < charArray.length; i++) {
+                    double move = (charArray[i] * offset);
+                    
  
-                    double verschiebung = (charArray[i] * offset);
-                    // ursprüngliches Zeichen plus Offset
- 
-                    cryptArray[i] = (char) (verschiebung);
+                    cryptArray[i] = (char) (move);
  
         }
         return(cryptArray);
